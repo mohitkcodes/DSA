@@ -1,3 +1,3 @@
 # DSA
 This is my first git repository 
-Coder - Mohit
+Coder - Mohit (giki)
