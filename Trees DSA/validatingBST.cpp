@@ -34,10 +34,11 @@ bool helper(node *root, node *min, node *max){
 }
 
 bool isValidBST(node *root){
-    return helper(root);
+    return helper(root, NULL , NULL);
 }
 int main()
 {
     
     return 0;
+
 }
