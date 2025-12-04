@@ -1,0 +1,51 @@
+#include<iostream>
+using namespace std;
+
+class node {
+    public:
+    int data;
+    node *left;
+    node *right;
+
+    node(int n){
+        data = n;
+        left = right = nullptr;
+    }
+};
+
+static int ind = -1;
+node *buildtree(int pre[]){
+    ind++;
+    if(pre[ind] == -1){
+        return nullptr;
+    }
+
+    node *root = new node(pre[ind]);
+
+    root->left = buildtree(pre);
+    root->right = buildtree(pre);
+    return root;
+}
+
+void kthLevel (node *root, int k){
+    if(root == nullptr){
+        return;
+    }
+
+    if(k == 1){
+        cout << root->data << " ";
+        return;
+    }
+
+    kthLevel(root->left , k-1);
+    kthLevel(root->right, k-1);
+}
+
+int main()
+{
+    int arr[] = {1,2,3,-1,-1,4,-1,-1,5,6,-1,-1,7,-1,-1};
+    node *root = buildtree(arr);
+    kthLevel(root, 2);
+
+    return 0;
+}
